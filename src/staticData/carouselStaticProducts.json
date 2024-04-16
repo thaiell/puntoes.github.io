@@ -1,0 +1,13 @@
+[
+  { "sku": "SKU001", "name": "Remera Color Roja", "category": ["Ropa"], "price": 25.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_945897-MLA54932481894_042023-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU002", "name": "Remera Color Roja", "category": ["Ropa"], "price": 39.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_792837-MLA52444056254_112022-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU003", "name": "Remera Color Roja", "category": ["Calzado"], "price": 49.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_628017-MLA50771893650_072022-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU004", "name": "Remera Color Roja", "category": ["Tecnología"], "price": 799.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_826697-MLA53333047410_012023-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU005", "name": "Remera Color Roja", "category": ["Tecnología"], "price": 699.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_613857-MLA71656863183_092023-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU006", "name": "Remera Color Roja", "category": ["Fotografía"], "price": 549.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_945897-MLA54932481894_042023-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU007", "name": "Remera Color Roja", "category": ["Libros"], "price": 12.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_628017-MLA50771893650_072022-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU008", "name": "Remera Color Roja", "category": ["Accesorios de ordenador"], "price": 79.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_792837-MLA52444056254_112022-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU009", "name": "Remera Color Roja", "category": ["Tecnología"], "price": 299.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_826697-MLA53333047410_012023-O.webp", "imgAlt": "Remera color X" },
+  { "sku": "SKU010", "name": "Remera Color Roja", "category": ["Accesorios deportivos"], "price": 149.99, "imgUrl": "https://http2.mlstatic.com/D_NQ_NP_613857-MLA71656863183_092023-O.webp", "imgAlt": "Remera color X"
+  }
+]

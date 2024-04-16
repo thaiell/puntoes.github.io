@@ -1,0 +1,47 @@
+---
+
+---
+
+<div class="relative">
+    <button id="open-menu" class="flex self-center p-1">
+        
+        <slot name="button" />
+        
+    </button>
+    
+    <div id="menu" class="absolute right-0 w-auto h-auto hidden bg-white opacity-0 transition-opacity z-50 rounded-lg">
+        
+        <slot name="menu-content" />
+        
+    </div>
+</div>
+    
+
+
+<script>
+    const menu = document.getElementById("menu");
+    const openBtn = document.getElementById("open-menu");
+
+    const toggleMenu = () => {
+
+        setTimeout(() => {
+            menu?.classList.toggle("hidden");
+        }, 100);
+        
+        menu?.classList.toggle("opacity-100");
+
+        if(menu?.classList.contains("hidden")){
+            document.addEventListener("click", closeMenuOutside)
+        } else {
+            document.removeEventListener("click", closeMenuOutside)
+        }
+    }
+
+const closeMenuOutside = (event: MouseEvent) => {
+    if(!menu?.contains(event.target as Node) && !openBtn?.contains(event.target as Node)){
+        toggleMenu();
+    }
+}
+
+    openBtn?.addEventListener("click", toggleMenu);
+</script>

@@ -1,0 +1,29 @@
+---
+
+---
+
+
+<button id="open-dialog-btn">
+    
+    <slot name="button"/>
+
+</button>
+
+<div id="dialog-content" class="fixed hidden h-52 w-52 z-50 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-md bg-slate-400">
+    
+    <slot name="dialog-content" />
+    
+</div>
+<script>
+
+const btn = document.getElementById("open-dialog-btn");
+const dialog = document.getElementById("dialog-content");
+
+const openMenu = () => {
+    dialog?.classList.toggle("hidden")
+}
+
+btn?.addEventListener("click", openMenu);
+
+
+</script>

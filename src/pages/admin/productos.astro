@@ -1,0 +1,102 @@
+---
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import { db, Products } from "astro:db";
+import DataTable from "../../components/react/DataTable";
+
+const products = await db.select().from(Products).limit(10)
+
+const fakeImgUrl = "https://www.pngkey.com/png/full/292-2926665_img-ropa-interior-caballero-png.png"
+
+let data = Array(50).fill({
+    imgUrl: fakeImgUrl,
+    name: 'Remera De Poliester',
+    quantity: 56,
+    price: 16000,
+    sku: 'REM002'
+})
+---
+
+<AdminLayout header="Productos">
+   
+
+    <div class="rounded-xl overflow-hidden border-spacing-2 border-2 border-b-gray-500">
+        <table class="w-full">     
+            <thead class="bg-gray-300">
+                <tr>
+                    <th class="px-4">
+                        
+                    </th>
+                    <th class="px-4">
+                        Nombre del Producto
+                    </th>
+                    <th class="px-4">
+                        Stock                        
+                    </th>
+                    <th class="px-4">
+                        Precio
+                    </th>
+                    <th class="px-4">
+                        SKU
+                    </th>
+                </tr>
+        </thead>         
+        <tbody>
+            {data.map((item) => (
+                <tr class="h-12">
+                    <td class="px-4">
+                        <img class="min-w-16 w-16" src={item.imgUrl} alt="Ropa" loading="lazy" />
+                    </td>
+                    <td class="px-4">{item.name}</td>
+                    <td class="px-4">{item.quantity}</td>
+                    <td class="px-4">{item.price}</td>
+                    <td class="px-4">{item.sku}</td>
+                </tr>   
+            ))}
+        </tbody>
+    </table>
+</div>
+  
+
+<!--     <DataTable 
+    columns={[
+        "",
+        "Nombre de Producto", 
+        "Stock",
+        "Precio",
+        "SKU"
+        ]}>
+
+        {products.map((product) => (
+            <tr class="h-12">
+                <td><img class="w-16"
+                     src={fakeImgUrl} alt="Ropa" loading="lazy" />
+                </td>
+                <td>{ product.name }</td>
+                <td>{ product.stock }</td>
+                <td>{ product.price }</td>
+                <td>{ product.sku }</td>
+            </tr>
+        ))}
+
+    </DataTable> -->
+
+    
+</AdminLayout>
+<script>
+let initialScrollTop = document.documentElement.scrollTop;
+let upperHeader = document.getElementById('upperHeader');
+
+window.addEventListener("scroll", function() {
+    let currentScrollTop = document.documentElement.scrollTop;
+
+    if (upperHeader) {
+        if (currentScrollTop > initialScrollTop){
+            console.log("ESCONDO")
+            upperHeader.style.transform = 'translateY(-100%)';
+        } else {
+            console.log("APAREZCO")
+            upperHeader.style.transform = 'translateY(0)';
+        }
+    }
+});
+</script>

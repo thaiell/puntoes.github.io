@@ -1,0 +1,141 @@
+---
+interface Props {
+    header: string
+}
+
+const { header } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/faviconPuntoES.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+		<title>Admin PuntoES</title>
+	</head>
+	<body>
+
+		<main class="flex">
+			<aside class="min-w-52 h-screen bg-green-300 py-8">    
+				<a href="/" class="flex justify-center items-center gap-4 text-2xl font-Comfortaa">
+					PuntoES
+					<img class="w-12" 
+					src="/img/PuntoESLogo.jpg" alt="Logo oficial de PuntoES Uniformes">
+				</a>
+				<a href="/admin/dashboard" class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Dashboard
+				</a>
+				<a class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Ventas
+				</a>
+				<a href="/admin/productos" id="productsBtn" class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Productos
+				</a>
+				<a href="/admin/pedidos" class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Pedidos
+				</a>
+				<a href="/admin/escuelas" class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Escuelas
+				</a>
+				<a href="/admin/clientes" id="usersBtn" class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Clientes
+				</a>
+				<a href="/admin/pendientes" class="flex justify-between px-4 py-2 text-xl font-Comfortaa">
+					Pendientes
+				</a>
+			</aside>
+		
+		<section id="scrollSection" class="w-full h-screen max-h-screen overflow-y-scroll">
+	
+			<div id="upperHeader"
+			class="flex h-10 px-8 justify-between border-b border-gray-500 bg-slate-200 transform transition-transform duration-1000 ease-in-out">
+				<button class="font-Comfortaa">
+					Mi Cuenta
+				</button>
+			</div>
+			<div id="mainHeader" class="flex h-12 py-8 px-8 items-center justify-between bg-slate-200 sticky top-0 z-50">
+					<h1 class="text-2xl flex font-Comfortaa">
+							{ header }
+					</h1>
+					
+					<div class="flex items-center gap-8 font-Comfortaa">
+						<button>
+							More Options
+						</button>
+						<button>
+							Agregar un producto
+						</button>
+						
+					</div>
+			</div>
+
+		<slot />
+
+
+		</section>
+		</main>
+    </body>
+</html>
+
+
+
+
+<!-- 		<main class="flex">
+			<aside class="min-w-52 h-screen bg-green-300 py-8">    
+				<a href="/" class="flex justify-center items-center gap-4 text-2xl font-mono">
+					PuntoES
+					<img class="w-12" 
+					src="/img/PuntoESLogo.jpg" alt="Logo oficial de PuntoES Uniformes">
+				</a>
+				<a href="/admin/dashboard" class="flex justify-between px-4 py-2 text-xl font-mono">
+					Dashboard
+				</a>
+				<a class="flex justify-between px-4 py-2 text-xl font-mono">
+					Ventas
+				</a>
+				<a href="/admin/productos" id="productsBtn" class="flex justify-between px-4 py-2 text-xl font-mono">
+					Productos
+				</a>
+				<a href="/admin/pedidos" class="flex justify-between px-4 py-2 text-xl font-mono">
+					Pedidos
+				</a>
+				<a href="/admin/escuelas" class="flex justify-between px-4 py-2 text-xl font-mono">
+					Escuelas
+				</a>
+				<a href="/admin/clientes" id="usersBtn" class="flex justify-between px-4 py-2 text-xl font-mono">
+					Clientes
+				</a>
+				<a href="/admin/pendientes" class="flex justify-between px-4 py-2 text-xl font-mono">
+					Pendientes
+				</a>
+			</aside>
+			
+			<section class="w-full h-full">
+
+				<div class="flex justify-between items-center h-16 px-8 bg-slate-200">
+					<h1 class="text-2xl">
+						{ header }
+					</h1>
+					
+					<div class="flex gap-8">
+						<button>
+							Agregar un producto
+						</button>
+						<button>
+							Mi Cuenta
+						</button>
+					</div>
+						
+				</div>
+					
+					<slot />
+					
+			</section>
+	  </main>	 -->

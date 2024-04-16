@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getProduct } from "../../lib/getProduct";
+import NotFound from "../../components/NotFound.astro";
+import type { Products } from "../../lib/types"
+import ProductDetailsCarousel from "../../components/react/ProductDetailsCarousel"
+
+
+const { productId } = Astro.params;
+
+let productNotFound = false;
+
+const response = await getProduct(productId);
+if(response.status === 404){
+  productNotFound = true;
+} else if(response.status !== 200) {
+  productNotFound = true;
+}
+
+const responseJson = await response.json();
+const product = responseJson[0] as Products;
+
+/* 
+const { productId } = Astro.params;
+
+let product;
+let arrayImgUrl: string[] = []
+let arrayAltImgUrl: string[] = []
+let productNotFound = false;
+
+try {
+  const response = await getProduct(productId);
+  if (response.status === 404) {
+    productNotFound = true;
+  }
+
+  const responseJson = await response.json();
+
+  product = responseJson[0] as Products;
+  arrayImgUrl = product.imgUrl;
+  arrayAltImgUrl = product.imgAlt;
+} catch (error) {
+  console.log(error);
+  productNotFound = true;
+}
+
+ */
+---
+
+<Layout title="Tienda">
+{  
+    productNotFound ? (
+    <NotFound />
+    ) : (
+    <main>
+       <section class="flex mt-20">
+    
+          <div class="flex-1 flex items-center justify-center">
+    
+            <ProductDetailsCarousel 
+            arrayImgUrl={product?.imgUrl}
+            arrayAltImgUrl={product?.imgAlt}
+            client:load />
+    
+    </div>    
+    <div class="flex-1 flex flex-col">
+        <h1 class="text-2xl">{product?.name}</h1>
+        <h2 class="text-xl">${product?.price}</h2>
+        
+        {product?.category.length > 0 && (
+          <div class="flex flex-wrap space-x-2">
+
+            {product?.category.map((category: string) => (
+           
+                <p class="text-md py-1 px-3 rounded-xl bg-slate-100">{category}</p>    
+   
+            ))}
+        
+          </div>
+        )}
+        <div>
+          <button class="px-4 py-2 rounded-md bg-orange-300 ">
+            Añadir al carrito  
+            </button>
+            <button class="px-4 py-2 rounded-md bg-green-500">
+              Comprar ahora
+              </button>
+              </div>
+              </div>
+        </section>
+    
+    
+        </main>
+
+
+    )
+  }
+</Layout>
