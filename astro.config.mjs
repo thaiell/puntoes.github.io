@@ -10,7 +10,8 @@ export default defineConfig({
   integrations: [tailwind(), react(), db(), icon()],
   output: "server",
   adapter: vercel(),
-  site: 'https://thaiell.github.io'
+  site: 'https://thaiell.github.io',
+  base: "/puntoes"
 /*   redirects: {
     "/": {
       status: 401,
