@@ -8,7 +8,7 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), db(), icon()],
-  output: "dist/",
+  output: "dist",
   adapter: vercel(),
   site: 'https://thaiell.github.io',
   base: "/puntoes"
