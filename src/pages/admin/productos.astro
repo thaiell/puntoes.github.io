@@ -1,13 +1,9 @@
 ---
 import AdminLayout from "../../layouts/AdminLayout.astro";
-import { db, Products } from "astro:db";
-import DataTable from "../../components/react/DataTable";
-
-const products = await db.select().from(Products).limit(10)
 
 const fakeImgUrl = "https://www.pngkey.com/png/full/292-2926665_img-ropa-interior-caballero-png.png"
 
-let data = Array(50).fill({
+let data = Array(20).fill({
     imgUrl: fakeImgUrl,
     name: 'Remera De Poliester',
     quantity: 56,

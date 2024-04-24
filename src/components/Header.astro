@@ -2,15 +2,15 @@
 import Menu from "./Menu.astro";
 import { Icon } from "astro-icon/components";
 import MobileDrawer from "./MobileDrawer.astro";
-import { getUser } from "../lib/utills";
 import SignOutButton from "./SignOutButton.astro";
-let user;
+
+/* let user;
 const sessionCookie = Astro.cookies.get("session")?.value;
 
 if (sessionCookie) {
 
   user = await getUser(sessionCookie);
-}
+} */
 ---
 
 <header
@@ -26,12 +26,12 @@ if (sessionCookie) {
   <Menu>
     <Icon slot="button" name={"user"} size={35} color={"white"} />
     <div slot="menu-content" class="min-w-60 px-4 py-4">
-      {
-        user ? (
+ <!--      {
+        user ? ( -->
           <>
             <div>
-              <h1 class="text-xl">Hola {user?.displayName}!</h1>
-              <h2 class="text-gray-500">{user?.email}</h2>
+              <h1 class="text-xl">Hola {/* user?.displayName */}Pepe!</h1>
+              <h2 class="text-gray-500">{/* user?.email */}email</h2>
             </div>
             <span class="block w-full h-[1px] bg-niceGray my-2" />
             <a href="/mi-perfil" class="flex justify-between text-md">
@@ -46,7 +46,7 @@ if (sessionCookie) {
             <span class="block w-full h-[1px] bg-niceGray my-2" />
             <SignOutButton>Cerrar sesión</SignOutButton>
           </>
-        ) : (
+       <!--  ) : ( -->
           <>
             <a href="/iniciar-sesion">
               <span>Iniciar Sesión</span>
@@ -59,8 +59,8 @@ if (sessionCookie) {
               <span>Conocénos</span>
             </a>
           </>
-        )
-      }
+       <!--  )
+      } -->
     </div>
   </Menu>
 
